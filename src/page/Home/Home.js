@@ -113,29 +113,33 @@ const addMember = () => {
         <h4>Defense: {pokemon.defense}</h4>
         <h4>Speed: {pokemon.speed}</h4>
         
-        <div>
-
-        {openSpot ? <button onClick={addMember} className="AddMember">Add Member to Team</button> : null}
-        {fullTeam ? <Popup trigger={<button  className="AddMember">Add Member to Team</button>
-        } position="right center">
-          <div>Cannot add more than 6 pokemon to a Team</div>
-        </Popup>: null}
-      
         
-        </div>
         
 
         
 </>
+
+
 )}
 
 
     </div>
+    <div className="bottonbutton" style={{backgroundColor: color, textAlign : "center"}}>
+
+        {pokemonName && openSpot ? <button onClick={addMember} className="AddMember">Add Member to Team</button> : null}
+        
+        {pokemonName && !openSpot ? (<Popup trigger={<button  className="AddMember">Add Member to Team</button>}
+        position="right center">
+          <div>Cannot add more than 6 pokemon to a Team</div>
+        </Popup>): null}
+      
         <Link to={{pathname: "MyTeam", state: {pokemonTeam}}}>
           <button>
             Go to Teams
           </button>
         </Link>
+        </div>
+        
     </div>
 
 );
